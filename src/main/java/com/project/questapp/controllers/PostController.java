@@ -3,6 +3,7 @@ package com.project.questapp.controllers;
 import com.project.questapp.entities.Post;
 import com.project.questapp.requests.PostCreateRequest;
 import com.project.questapp.requests.PostUpdateRequest;
+import com.project.questapp.responses.PostResponse;
 import com.project.questapp.services.PostService;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ public class PostController {
     }
 
     @GetMapping
-    public List<Post> getAllPosts(@RequestParam Optional<Long> userId){ //bize gelen request içindeki parametreleri parse et ve sağındaki değişkenin içine at
+    public List<PostResponse> getAllPosts(@RequestParam Optional<Long> userId){ //bize gelen request içindeki parametreleri parse et ve sağındaki değişkenin içine at
     //optional olunca parametre varsa parametreye göre fonk çalıştır, yoksa normal api urle göre çalıştır.
        return postService.getAllPosts(userId);
     }

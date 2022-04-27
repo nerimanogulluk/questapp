@@ -15,10 +15,10 @@ public class Post {
     @Id
     Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE) //bi user silince postları da silinsin
-    @JsonIgnore //Serialization kısmında sorun çıkarmaması için bu alanı ignore et
+    //@JsonIgnore //Serialization kısmında sorun çıkarmaması için bu alanı ignore et
     User user;
 
     String title;
