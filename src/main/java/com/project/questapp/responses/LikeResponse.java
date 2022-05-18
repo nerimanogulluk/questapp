@@ -10,6 +10,7 @@ public class LikeResponse {
     Long userId;
     Long postId;
 
+    //constructor şeklinde mapper tanımladık
     public LikeResponse(Like entity){
         this.id = entity.getId();
         this.userId = entity.getUser().getId();

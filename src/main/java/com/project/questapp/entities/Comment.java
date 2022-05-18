@@ -6,6 +6,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "comment")
@@ -13,6 +14,7 @@ import javax.persistence.*;
 public class Comment {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     @ManyToOne
@@ -31,4 +33,6 @@ public class Comment {
     @Column(columnDefinition = "text")
     String text;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    Date createDate;
 }

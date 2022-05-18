@@ -6,6 +6,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "post")
@@ -13,6 +14,7 @@ import javax.persistence.*;
 public class Post {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -25,4 +27,7 @@ public class Post {
     @Lob
     @Column(columnDefinition = "text") //hibernate mysqlde stringi text olarak algılaması için
     String text;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    Date createDate;
 }
